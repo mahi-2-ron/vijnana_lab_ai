@@ -1,6 +1,5 @@
-import { SubjectData } from '../types';
-import { SubjectType } from '../types';
-import { Zap, FlaskConical, Dna, Calculator, Monitor } from 'lucide-react';
+import { SubjectData, SubjectType } from '../types';
+import { FlaskConical } from 'lucide-react';
 
 export const chemistryData: SubjectData = {
     id: 'chemistry',
@@ -619,7 +618,7 @@ export const chemistryData: SubjectData = {
               "For Carboxylic group: Add a pinch of sodium bicarbonate. Brisk effervescence (CO2) indicates presence of -COOH.",
               "For Alcoholic group: Add a small piece of dry sodium metal. Evolution of hydrogen gas indicates an alcohol group, or perform the ceric ammonium nitrate test.",
               "For Phenolic group: Add a few drops of neutral FeCl3 solution. A violet, green, or blue coloration indicates a phenol.",
-              "For Carbonyl group (Aldehyde/Ketone): Add 2,4-DNP reagent. A yellow/orange precipitate indicates a carbonyl group. Use Tollens\' or Fehling\'s test to distinguish aldehyde from ketone.",
+              "For Carbonyl group (Aldehyde/Ketone): Add 2,4-DNP reagent. A yellow/orange precipitate indicates a carbonyl group. Use Tollens' or Fehling's test to distinguish aldehyde from ketone.",
               "For Amino group: Perform the carbylamine test (foul smell) or nitrous acid test."
             ],
               objectives: ["Distinguish aldehydes from ketones."],
@@ -996,9 +995,9 @@ export const chemistryData: SubjectData = {
       {
           id: 'c6',
     boards: ['CBSE', 'Karnataka PUC', 'ICSE'],
-    standards: ['2nd PUC / Class 12'], title: 'KMnO4 Titration (Redox)', description: 'Standardize KMnO4 against ferrous ammonium sulphate.', difficulty: 'Hard', duration: '40 min', category: 'Volumetric Analysis',          content: { aim: "To determine concentration of KMnO4 by titrating against FAS.", requirements: ["Burette", "Pipette", "KMnO4", "FAS", "H2SO4"], theory: "KMnO4 acts as self-indicator. Endpoint: persistent pink.", procedure: [
+    standards: ['2nd PUC / Class 12'], title: 'KMnO4 Titration (Redox)', description: 'Standardize KMnO4 against ferrous ammonium sulphate.', difficulty: 'Hard', duration: '40 min', category: 'Volumetric Analysis',          content: { aim: "To determine concentration of KMnO4 by titrating against FAS.", requirements: ["Burette", "Pipette", "KMnO4", "FAS", "H2SO4"], theory: "KMnO4 acts as self-indicator. Endpoint: persistent pink.", procedure: [
               "Rinse and fill the burette with the given KMnO4 solution.",
-              "Pipette out 20 mL of standard Mohr\'s salt (or oxalic acid) solution into a conical flask.",
+              "Pipette out 20 mL of standard Mohr's salt (or oxalic acid) solution into a conical flask.",
               "Add 1 test tube (~20 mL) of dilute H2SO4 to the conical flask. (If using oxalic acid, heat the flask to 60 degrees C).",
               "Titrate the solution against KMnO4 from the burette while constantly swirling the flask.",
               "KMnO4 acts as a self-indicator. The end-point is marked by the appearance of a permanent pale pink color.",
@@ -2768,8 +2767,156 @@ export const chemistryData: SubjectData = {
                     "Teaching Laboratory Essential: One of the fundamental preparatory experiments in every senior secondary and undergraduate chemistry curriculum worldwide."
                   ]
         }
+      },
+      {
+        id: 'c16',
+        boards: ['CBSE', 'Karnataka PUC', 'ICSE'],
+        standards: ['1st PUC / Class 11'],
+        title: "pH Measurement and Classification",
+        description: "Determine the pH of various common substances using universal indicator and pH scale.",
+        difficulty: 'Easy',
+        duration: '30 min',
+        category: 'Inorganic Chem',
+        content: {
+          aim: "To determine the pH of various samples (lemon juice, soap solution, distilled water, etc.) using universal indicator and classify them as acidic, basic, or neutral.",
+          theory: "The pH scale ranges from 0 to 14 and is a measure of the hydrogen ion concentration [H+] in a solution. Mathematically, pH = -log[H+]. Solutions with pH < 7 are acidic, pH > 7 are basic (alkaline), and pH = 7 is neutral. Universal indicator is a mixture of several indicators that shows a progressive change in color over a wide pH range, allowing for a more precise estimation.",
+          requirements: ["Universal indicator solution", "Test tubes", "pH color chart", "Lemon juice", "Soap solution", "Distilled water"],
+          procedure: [
+            "Take about 2mL of each sample solution in separate, labeled test tubes.",
+            "Add 2-3 drops of universal indicator to each test tube and shake gently.",
+            "Observe the color change in each solution.",
+            "Match the observed color with the standard pH color chart provided.",
+            "Record the approximate pH value and classify the substance."
+          ],
+          objectives: ["Understand the concept of the pH scale.", "Master the use of universal indicators."],
+          observationTable: { columns: ["Sample", "Color Change", "Approx. pH", "Nature"] },
+          quizQuestions: [
+            { id: 1, question: "What is the pH of pure water at 25°C?", options: ["0", "7", "14", "1"], correctIndex: 1 },
+            { id: 2, question: "A solution turns universal indicator red. Its nature is:", options: ["Strongly Acidic", "Slightly Basic", "Neutral", "Strongly Basic"], correctIndex: 0 },
+            { id: 3, question: "The pH of a basic solution is always:", options: ["Less than 7", "Exactly 7", "Greater than 7", "Zero"], correctIndex: 2 }
+          ],
+          vivaQuestions: [
+            { question: "Define pH.", answer: "pH is the negative logarithm to the base 10 of the hydrogen ion concentration in moles per liter." },
+            { question: "What color does universal indicator show for a neutral solution?", answer: "Green." },
+            { question: "Why is universal indicator preferred over litmus paper?", answer: "Litmus only tells if a substance is acidic or basic, but universal indicator gives an estimate of the actual pH value." }
+          ],
+          realWorldApplications: [
+            "Soil Testing: Farmers test soil pH to determine which crops will grow best or if lime needs to be added.",
+            "Swimming Pool Maintenance: pH levels are monitored to ensure water is safe and non-corrosive.",
+            "Cosmetic Industry: Shampoos and soaps are pH-balanced (around 5.5) to suit human skin and hair."
+          ]
+        }
+      },
+      {
+        id: 'c17',
+        boards: ['CBSE', 'Karnataka PUC', 'ICSE'],
+        standards: ['2nd PUC / Class 12'],
+        title: "Identification of Functional Groups",
+        description: "Perform tests to identify Alcohol, Phenol, Carbonyl, and Carboxylic groups.",
+        difficulty: 'Hard',
+        duration: '60 min',
+        category: 'Organic Chem',
+        content: {
+          aim: "To identify the functional group present in an unknown organic compound through a series of qualitative chemical tests.",
+          theory: "Functional groups are specific groups of atoms within molecules that are responsible for the characteristic chemical reactions of those molecules. For example, the presence of an -OH group indicates an alcohol or phenol, while a -COOH group indicates a carboxylic acid. Systematic tests like the Sodium Bicarbonate test for acids, the Neutral Ferric Chloride test for phenols, and the Cerically Ammonium Nitrate test for alcohols are used for identification.",
+          requirements: ["Organic samples", "Sodium metal", "Schiff's reagent", "Neutral FeCl3", "NaHCO3 solution"],
+          procedure: [
+            "Perform the Sodium Bicarbonate test: If brisk effervescence occur, -COOH group is present.",
+            "Perform the Cerically Ammonium Nitrate test: Red color indicates -OH (Alcohol) group.",
+            "Perform the Neutral Ferric Chloride test: Violet color indicates Phenolic -OH group.",
+            "Perform the Schiff's reagent test: Magenta color indicates an Aldehyde group."
+          ],
+          objectives: ["Understand organic reaction mechanisms.", "Master qualitative analysis of organic compounds."],
+          observationTable: { columns: ["Test", "Observation", "Inference"] },
+          quizQuestions: [
+            { id: 1, question: "Which test is used specifically to identify a phenolic group?", options: ["Lucas test", "Neutral FeCl3 test", "Schiff's test", "Molisch's test"], correctIndex: 1 },
+            { id: 2, question: "Brisk effervescence with NaHCO3 indicates the presence of:", options: ["Alcohol", "Phenol", "Carboxylic acid", "Ketone"], correctIndex: 2 }
+          ],
+          vivaQuestions: [
+            { question: "What gas is evolved in the NaHCO3 test?", answer: "Carbon dioxide gas (CO2)." },
+            { question: "Why are phenols more acidic than alcohols?", answer: "Due to the resonance stabilization of the phenoxide ion formed after losing a proton." }
+          ],
+          realWorldApplications: [
+            "Pharmaceutical Testing: Identifying functional groups is crucial in verifying the purity of synthesized drugs.",
+            "Food Science: Distinguishing between different types of alcohols and organic acids in food products.",
+            "Environmental Analysis: Detecting organic pollutants in water sources by identifying their functional groups."
+          ]
+        }
+      },
+      {
+        id: 'c18',
+        boards: ['CBSE', 'Karnataka PUC', 'ICSE'],
+        standards: ['1st PUC / Class 11', '2nd PUC / Class 12'],
+        title: "Paper Chromatography of Plant Pigments",
+        description: "Separate different pigments from green leaves using paper chromatography.",
+        difficulty: 'Medium',
+        duration: '90 min',
+        category: 'Analytic Chem',
+        content: {
+          aim: "To separate and identify the pigments present in plant leaves (like spinach) using the technique of paper chromatography.",
+          theory: "Chromatography is a separation technique based on the differential distribution of components between a stationary phase (chromatography paper) and a mobile phase (solvent). Different pigments in leaves (chlorophyll a, chlorophyll b, xanthophylls, and carotene) travel at different speeds up the paper depending on their solubility in the solvent and their affinity for the paper.",
+          requirements: ["Whatman filter paper", "葉 chromatogram tank", "Acetone", "Petroleum ether", "Capillary tube", "Spinach leaves"],
+          procedure: [
+            "Extract the pigments by grinding leave with acetone.",
+            "Cut a strip of chromatography paper and draw a baseline.",
+            "Apply a concentrated spot of the extract on the baseline using a capillary tube.",
+            "Suspend the paper in a chromatography jar containing the solvent (Petroleum ether + Acetone).",
+            "Allow the solvent front to rise and pigments to separate, then remove and dry the paper.",
+            "Calculate the Rf (Retardation Factor) values for each pigment."
+          ],
+          objectives: ["Understand the principles of partition chromatography.", "Calculate and interpret Rf values."],
+          observationTable: { columns: ["Pigment", "Color", "Distance (cm)", "Rf Value"] },
+          quizQuestions: [
+            { id: 1, question: "Rf value is calculated as:", options: ["D(solvent)/D(solute)", "D(solute)/D(solvent)", "D(solute)+D(solvent)", "None"], correctIndex: 1 },
+            { id: 2, question: "Which pigment usually travels the furthest in leaf chromatography?", options: ["Chlorophyll a", "Chlorophyll b", "Carotene", "Xanthophyll"], correctIndex: 2 }
+          ],
+          vivaQuestions: [
+            { question: "What is the stationary phase in paper chromatography?", answer: "The water molecules trapped in the cellulose fibers of the chromatography paper." },
+            { question: "Why should the spot be above the solvent level?", answer: "If the spot is below the solvent level, it will dissolve into the solvent instead of traveling up the paper." }
+          ],
+          realWorldApplications: [
+            "Forensics: Checking for ink forgery or identifying substances in biological samples.",
+            "Biochemistry: Separating amino acids or proteins for research and diagnostic purposes.",
+            "Botany: Studying the pigment composition of different plant species to understand their photosynthetic efficiency."
+          ]
+        }
+      },
+      {
+        id: 'c19',
+        boards: ['CBSE', 'Karnataka PUC', 'ICSE'],
+        standards: ['1st PUC / Class 11'],
+        title: "Electrolysis of Water",
+        description: "Decompose water into Hydrogen and Oxygen gases using an electric current.",
+        difficulty: 'Medium',
+        duration: '45 min',
+        category: 'Physical Chem',
+        content: {
+          aim: "To perform the electrolysis of water and demonstrate the decomposition of water into hydrogen and oxygen in a 2:1 volume ratio.",
+          theory: "Electrolysis is the process of using electricity to drive a non-spontaneous chemical reaction. Pure water is a poor conductor, so a small amount of electrolyte (like sulfuric acid) is added. At the cathode, hydrogen ions are reduced to H2 gas. At the anode, oxygen ions are oxidized to O2 gas. Overall: 2H2O → 2H2 + O2.",
+          requirements: ["Hoffman voltameter or battery setup", "Graphite electrodes", "6V Battery", "Acidulated water"],
+          procedure: [
+            "Fill the electrolysis apparatus with water containing a few drops of sulfuric acid.",
+            "Invert two graduated test tubes filled with water over the electrodes.",
+            "Connect the electrodes to a DC power source.",
+            "Observe the evolution of gas bubbles at both electrodes and the displacement of water.",
+            "Wait until a measurable amount of gas is collected."
+          ],
+          objectives: ["Understand Faraday's laws of electrolysis.", "Verify the chemical composition of water."],
+          observationTable: { columns: ["Electrode", "Gas Collected", "Volume (mL)", "Test for Gas"] },
+          quizQuestions: [
+            { id: 1, question: "Which gas is evolved at the cathode during water electrolysis?", options: ["Oxygen", "Hydrogen", "Carbon dioxide", "Chlorine"], correctIndex: 1 },
+            { id: 2, question: "What is the volume ratio of H2:O2 produced?", options: ["1:1", "1:2", "2:1", "3:1"], correctIndex: 2 }
+          ],
+          vivaQuestions: [
+            { question: "Why is sulfuric acid added to the water?", answer: "Pure water is a very poor conductor. The acid provides ions to facilitate the flow of current." },
+            { question: "How do you test for Oxygen gas?", answer: "A glowing splinter will burst into flame in the presence of pure oxygen." }
+          ],
+          realWorldApplications: [
+            "Clean Energy: Production of 'Green' Hydrogen for use in fuel cells and clean combustion engines.",
+            "Industrial Chemicals: Producing high-purity oxygen for medical and metal-cutting applications.",
+            "Metal Refining: Large-scale electrolysis is used to refine or plate metals like Aluminum and Copper."
+          ]
+        }
       }
-
-
     ]
   };

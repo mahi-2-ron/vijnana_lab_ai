@@ -19,7 +19,7 @@ function useLabContext() {
 
   return useMemo(() => {
     // URL pattern: /subjects/:subjectId/:labId
-    const match = pathname.match(/^\/subjects\/([\w-]+)\/([\w-]+)$/);
+    const match = /^\/subjects\/([\w-]+)\/([\w-]+)$/.exec(pathname);
     if (!match) return null;
 
     const [, subjectId, labId] = match;
@@ -47,7 +47,7 @@ function useLabContext() {
       parts.push(`Theory Summary:\n${theory}`);
     }
     if (lab.content?.procedure?.length) {
-      parts.push(`Procedure:\n${lab.content.procedure.map((s, i) => `${i + 1}. ${s}`).join('\n')}`);
+      parts.push(`Procedure:\n${lab.content.procedure.map((s, i) => (i + 1) + ". " + s).join('\n')}`);
     }
     if (lab.content?.requirements?.length) {
       parts.push(`Requirements: ${lab.content.requirements.join(', ')}`);
@@ -77,7 +77,7 @@ const AIFloatingTutor: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const { user, profileData, loading: authLoading } = useAuth();
+  const { profileData } = useAuth();
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -143,18 +143,17 @@ const AIFloatingTutor: React.FC = () => {
   }, [isOpen]);
 
   /* ── Send handler ── */
-  const handleSend = useCallback(async () => {
-    if (!input.trim() || !chatSessionRef.current) return;
+  const sendMessage = useCallback(async (text: string) => {
+    if (!text.trim() || !chatSessionRef.current) return;
 
     const userMsg: ChatMessage = {
       id: Date.now().toString(),
       role: 'user',
-      text: input,
+      text: text,
       timestamp: Date.now(),
     };
 
     setMessages(prev => [...prev, userMsg]);
-    setInput('');
     setIsLoading(true);
 
     try {
@@ -164,7 +163,7 @@ const AIFloatingTutor: React.FC = () => {
         { id: tempId, role: 'model', text: '', timestamp: Date.now(), isThinking: true },
       ]);
 
-      const result = await sendMessageToGemini(chatSessionRef.current, userMsg.text);
+      const result = await sendMessageToGemini(chatSessionRef.current, text);
 
       let fullText = '';
       for await (const chunk of result) {
@@ -182,7 +181,7 @@ const AIFloatingTutor: React.FC = () => {
       console.error("Gemini API Error:", error);
       let errorMessage = "⚠️ I'm having trouble connecting right now. Please check your internet connection and try again.";
       
-      if (error && error.message) {
+      if (error?.message) {
         if (error.message.includes("429") || error.message.includes("Quota")) {
            errorMessage = "⚠️ Google API Rate Limit Exceeded (429). You are sending messages too fast for the free tier. Please wait 1 minute and try again.";
         } else if (error.message.includes("400") || error.message.includes("API key not valid")) {
@@ -204,7 +203,22 @@ const AIFloatingTutor: React.FC = () => {
     } finally {
       setIsLoading(false);
     }
-  }, [input]);
+  }, []);
+
+  const handleSend = () => {
+    if (!input.trim()) return;
+    sendMessage(input);
+    setInput('');
+  };
+
+  const handleChipClick = (chip: string) => {
+    setInput(chip);
+    // Auto-send after a tick so the user sees the chip fill the input
+    setTimeout(() => {
+      setInput('');
+      sendMessage(chip);
+    }, 50);
+  };
 
   // Don't render on /tutor page or /login page
   if (isOnTutorPage || isOnLoginPage) return null;
@@ -345,57 +359,7 @@ const AIFloatingTutor: React.FC = () => {
                 ].map(chip => (
                   <button
                     key={chip}
-                    onClick={() => {
-                      setInput(chip);
-                      // Auto-send after a tick so the user sees the chip fill the input
-                      setTimeout(() => {
-                        setInput('');
-                        const userMsg: ChatMessage = {
-                          id: Date.now().toString(),
-                          role: 'user',
-                          text: chip,
-                          timestamp: Date.now(),
-                        };
-                        setMessages(prev => [...prev, userMsg]);
-                        setIsLoading(true);
-
-                        (async () => {
-                          try {
-                            if (!chatSessionRef.current) return;
-                            const tempId = 'temp-' + Date.now();
-                            setMessages(prev => [
-                              ...prev,
-                              { id: tempId, role: 'model', text: '', timestamp: Date.now(), isThinking: true },
-                            ]);
-                            const result = await sendMessageToGemini(chatSessionRef.current, chip);
-                            let fullText = '';
-                            for await (const chunk of result) {
-                              const c = chunk as { text: string };
-                              if (c.text) {
-                                fullText += c.text;
-                                setMessages(prev =>
-                                  prev.map(m =>
-                                    m.id === tempId ? { ...m, text: fullText, isThinking: false } : m
-                                  )
-                                );
-                              }
-                            }
-                          } catch {
-                            setMessages(prev => [
-                              ...prev,
-                              {
-                                id: Date.now().toString(),
-                                role: 'model',
-                                text: '⚠️ Connection issue. Please try again.',
-                                timestamp: Date.now(),
-                              },
-                            ]);
-                          } finally {
-                            setIsLoading(false);
-                          }
-                        })();
-                      }, 50);
-                    }}
+                    onClick={() => handleChipClick(chip)}
                     disabled={isLoading}
                     className="flex-shrink-0 px-3 py-1.5 rounded-full text-[11px] font-medium bg-purple-500/15 text-purple-300 border border-purple-500/20 hover:bg-purple-500/25 hover:text-purple-200 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
                   >

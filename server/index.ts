@@ -44,7 +44,7 @@ app.use('/api/ai', aiRoutes);
 app.get('/api/health', (_req, res) => {
   res.json({ 
     status: 'OK', 
-    message: 'Vijnana Lab API is running 🔬',
+    message: 'Vijnana Lab API is running',
     timestamp: new Date().toISOString()
   });
 });
@@ -53,8 +53,8 @@ app.get('/api/health', (_req, res) => {
 const startServer = async () => {
   await connectDB();
   app.listen(PORT, () => {
-    console.log(`\n🔬 Vijnana Lab API Server running on http://localhost:${PORT}`);
-    console.log(`📡 Health check: http://localhost:${PORT}/api/health\n`);
+    console.log(`\n[API SERVER] Vijnana Lab running on http://localhost:${PORT}`);
+    console.log(`[HEALTH CHECK] URL: http://localhost:${PORT}/api/health\n`);
   });
 };
 

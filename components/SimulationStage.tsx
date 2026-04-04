@@ -1,16 +1,14 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-    Play, Pause, RotateCcw, Check, 
+    RotateCcw, Check, 
     Beaker, MousePointer2, 
     FlaskConical, Calculator, RefreshCw,
-    Lightbulb, AlertTriangle, Gauge, ArrowRight, ArrowLeft, Cpu, Flame, Droplets, Ruler, Zap, Eye, Microscope, Binary, Power,
+    Lightbulb, AlertTriangle, Gauge, ArrowRight, ArrowLeft, Cpu, Flame, Droplets, Ruler, Zap, Eye, Microscope, Binary, 
     Activity, Database
 } from 'lucide-react';
 import ScientificPanel from './ScientificPanel';
-import OhmsLawLab from './labs/OhmsLawLab';
-import PendulumLab from './labs/PendulumLab';
-import TitrationLab3D from './labs/TitrationLab3D';
+import TitrationSim from './labs/TitrationSim';
 import VernierCalipersLab3D from './labs/VernierCalipersLab3D';
 import ConcaveMirrorLab3D from './labs/ConcaveMirrorLab3D';
 import ConvexLensLab3D from './labs/ConvexLensLab3D';
@@ -23,18 +21,18 @@ import MitosisLab from './labs/MitosisLab';
 import StomataLab from './labs/StomataLab';
 import OsmosisLab from './labs/OsmosisLab';
 import BenedictsTestLab from './labs/BenedictsTestLab';
-import ChromatographyLab from './labs/ChromatographyLab';
-// Chemistry labs
-import SaltAnalysisLab from './labs/SaltAnalysisLab';
-import PHLabSimulation from './labs/PHLabSimulation';
-import FunctionalGroupsLab from './labs/FunctionalGroupsLab';
-import ThermochemistryLab from './labs/ThermochemistryLab';
+import SaltAnalysisSim from './labs/SaltAnalysisSim';
+import PHTestSim from './labs/pHTestSim';
+import FunctionalGroupSim from './labs/FunctionalGroupSim';
+import ChromatographySim from './labs/ChromatographySim';
+import ElectrolysisSim from './labs/ElectrolysisSim';
+import ThermochemistrySim from './labs/ThermochemistrySim';
+import RateOfReactionSim from './labs/RateOfReactionSim';
 // Math labs
 import MathLab from './labs/MathLab';
 import UnitCircleLab from './labs/UnitCircleLab';
 // CS labs
 import BubbleSortLab from './labs/BubbleSortLab';
-import InsertionSortLab from './labs/InsertionSortLab';
 import StackLab from './labs/StackLab';
 import NumberSystemsLab from './labs/NumberSystemsLab';
 import QueueLab from './labs/QueueLab';
@@ -51,11 +49,6 @@ import MetreBridgeLab from './labs/MetreBridgeLab';
 import PrismLab from './labs/PrismLab';
 import HookesLawLab from './labs/HookesLawLab';
 // New Chemistry labs
-import KMnO4TitrationLab from './labs/KMnO4TitrationLab';
-import CationAnalysisLab from './labs/CationAnalysisLab';
-import AnionAnalysisLab from './labs/AnionAnalysisLab';
-import RateOfReactionLab from './labs/RateOfReactionLab';
-import EnthalpyLab from './labs/EnthalpyLab';
 import PotashAlumLab from './labs/PotashAlumLab';
 import FoodAnalysisLab from './labs/FoodAnalysisLab';
 import AcetanilideLab from './labs/AcetanilideLab';
@@ -66,13 +59,9 @@ import MendelLab from './labs/MendelLab';
 // New Math labs
 import BinomialTheoremLab from './labs/BinomialTheoremLab';
 import StatisticsLab from './labs/StatisticsLab';
-// === 3D Labs (React Three Fiber) ===
+// === 3D Labs (React Three Fiber - Placeholders) ===
 import PendulumLab3D from './labs/PendulumLab3D';
 import OhmsLaw3D from './labs/OhmsLaw3D';
-import DNALab from './labs/DNALab';
-import AtomicStructureLab from './labs/AtomicStructureLab';
-import CrystalStructureLab from './labs/CrystalStructureLab';
-import TitrationLab3DNew from './labs/TitrationLab3DNew';
 // === New Biology Labs (filling gaps) ===
 import DNAIsolationLab from './labs/DNAIsolationLab';
 import PlasmolysisLab from './labs/PlasmolysisLab';
@@ -160,7 +149,7 @@ const RichProceduralLab = ({
                 {warnings && warnings.length > 0 && (
                      <div className="absolute top-4 right-4 flex flex-col gap-2">
                          {warnings.map((w, i) => (
-                             <div key={i} className="bg-red-500/20 border border-red-500/50 p-2 rounded-lg flex items-center gap-2 animate-pulse">
+                             <div key={`${w}-${i}`} className="bg-red-500/20 border border-red-500/50 p-2 rounded-lg flex items-center gap-2 animate-pulse">
                                  <AlertTriangle size={14} className="text-red-600 dark:text-red-400"/>
                                  <span className="text-xs text-red-800 dark:text-red-200">{w}</span>
                              </div>
@@ -331,15 +320,22 @@ const SimulationStage: React.FC<SimulationStageProps> = ({ subjectId, labId, hex
     // Fallback for others to procedural
     const scenario = LAB_SCENARIOS[labId];
     let content = <div className="flex items-center justify-center h-full text-gray-500 bg-slate-100 dark:bg-slate-900"><div className="text-center"><FlaskConical size={48} className="mx-auto mb-4 opacity-20" /><p>Select a specific module to begin.</p></div></div>;
-    if (labId === 'p2') content = <PendulumLab3D hex={hex} />;
-    else if (labId === 'p4') content = <OhmsLaw3D hex={hex} />;
-    else if (labId === 'b9') content = <DNALab hex={hex} />;
-    else if (labId === 'c16') content = <AtomicStructureLab hex={hex} />;
-    else if (labId === 'c17') content = <CrystalStructureLab hex={hex} />;
-    else if (labId === 'c6') content = <TitrationLab3DNew hex={hex} />;
+    // Chemistry brainstorm simulations
+    if (labId === 'c1') content = <TitrationSim type="ACID_BASE" onReading={(v) => logMeasurement({ volume: v })} />;
+    else if (labId === 'c6') content = <TitrationSim type="KMNO4" onReading={(v) => logMeasurement({ volume: v })} />;
+    else if (['c2', 'c7', 'c8'].includes(labId)) content = <SaltAnalysisSim />;
+    else if (['c3', 'c12', 'c16'].includes(labId)) content = <PHTestSim />;
+    else if (['c4', 'c17'].includes(labId)) content = <FunctionalGroupSim />;
+    else if (labId === 'c18' || labId === 'c5' && scenario?.title?.includes('Chromatography')) content = <ChromatographySim />;
+    else if (labId === 'c19') content = <ElectrolysisSim />;
+    else if (labId === 'c5' || labId === 'c10') content = <ThermochemistrySim onLog={logMeasurement} />;
+    else if (labId === 'c9') content = <RateOfReactionSim onLog={logMeasurement} />;
+    
     // Physics labs
     else if (labId === 'p1') content = <VernierCalipersLab3D hex={hex} onLog={logMeasurement} />;
+    else if (labId === 'p2') content = <PendulumLab3D hex={hex} />;
     else if (labId === 'p3') content = <ScrewGaugeLab3D hex={hex} onLog={logMeasurement} />;
+    else if (labId === 'p4') content = <OhmsLaw3D hex={hex} />;
     else if (labId === 'p5') content = <ConcaveMirrorLab3D hex={hex} />;
     else if (labId === 'p6') content = <MetreBridgeLab hex={hex} />;
     else if (labId === 'p7') content = <PrismLab hex={hex} />;
@@ -352,18 +348,9 @@ const SimulationStage: React.FC<SimulationStageProps> = ({ subjectId, labId, hex
     else if (labId === 'p14') content = <ParallelogramLab hex={hex} />;
     else if (labId === 'p16') content = <PotentiometerLab hex={hex} />;
     else if (labId === 'p17') content = <ZenerDiodeLab hex={hex} />;
-    // Chemistry labs
-    else if (labId === 'c1') content = <TitrationLab3D hex={hex} />;
-    else if (labId === 'c2') content = <SaltAnalysisLab hex={hex} />;
-    else if (labId === 'c3') content = <PHLabSimulation hex={hex} />;
-    else if (labId === 'c4') content = <FunctionalGroupsLab hex={hex} />;
-    else if (labId === 'c5') content = <ThermochemistryLab hex={hex} />;
-    else if (labId === 'c7') content = <CationAnalysisLab hex={hex} />;
-    else if (labId === 'c8') content = <AnionAnalysisLab hex={hex} />;
-    else if (labId === 'c9') content = <RateOfReactionLab hex={hex} />;
-    else if (labId === 'c10') content = <EnthalpyLab hex={hex} />;
+    
+    // Other Chemistry (Preparations & Food)
     else if (labId === 'c11') content = <PotashAlumLab hex={hex} />;
-    else if (labId === 'c12') content = <PHLabSimulation hex={hex} />;
     else if (labId === 'c13') content = <FoodAnalysisLab hex={hex} />;
     else if (labId === 'c14') content = <AcetanilideLab hex={hex} />;
     else if (labId === 'c15') content = <MohrsaltLab hex={hex} />;
@@ -372,7 +359,7 @@ const SimulationStage: React.FC<SimulationStageProps> = ({ subjectId, labId, hex
     else if (labId === 'b2') content = <StomataLab hex={hex} />;
     else if (labId === 'b3') content = <OsmosisLab hex={hex} />;
     else if (labId === 'b4') content = <BenedictsTestLab hex={hex} />;
-    else if (labId === 'b5') content = <ChromatographyLab hex={hex} />;
+    else if (labId === 'b5') content = <ChromatographySim />;
     else if (labId === 'b6') content = <PollenGermLab hex={hex} />;
     else if (labId === 'b7') content = <DNAIsolationLab hex={hex} />;
     else if (labId === 'b8') content = <MendelLab hex={hex} />;

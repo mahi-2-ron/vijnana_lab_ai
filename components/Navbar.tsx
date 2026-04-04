@@ -25,6 +25,7 @@ const Navbar: React.FC = () => {
   // ✅ SINGLE SOURCE OF TRUTH
   const { user, role } = useAuth();
 
+
   const isActive = (path: string) => location.pathname === path;
 
   // Title rotation
@@ -174,7 +175,17 @@ const Navbar: React.FC = () => {
             </Link>
           ))}
 
-          <hr />
+          {user && (
+            <Link
+              to={role === 'Teacher' ? '/teacher-dashboard' : '/student-dashboard'}
+              onClick={() => setIsOpen(false)}
+              className="text-lg font-bold text-blue-600 dark:text-blue-400"
+            >
+              Dashboard
+            </Link>
+          )}
+
+          <hr className="border-white/10" />
 
           {user ? (
             <button

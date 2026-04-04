@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Atom, Globe, ShieldCheck, Sparkles, Users, Zap, Award, BookOpen, Glasses, Mic, WifiOff, Rocket, Cpu, BrainCircuit } from 'lucide-react';
+import { Atom, Globe, ShieldCheck, Sparkles, Users, Zap, Award, BookOpen, Glasses, Rocket, Mic, Cpu } from 'lucide-react';
 import GlassCard from '../components/GlassCard';
 
 const About: React.FC = () => {
@@ -127,133 +126,103 @@ const About: React.FC = () => {
             </div>
          </GlassCard>
 
-         {/* Future Implementation / Roadmap */}
-         <div className="relative mt-20">
-            <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
-                    Future Roadmap
-                </h2>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20">
-                    <Rocket size={16} className="text-purple-400"/> 
-                    <span className="text-purple-300 font-mono text-xs tracking-widest uppercase">Architected by Team SUPRA</span>
-                </div>
-            </div>
+          {/* Roadmap */}
+          <div className="relative mt-24">
+             <div className="text-center mb-16">
+                 <h2 className="text-4xl font-display font-bold text-white mb-4 italic uppercase tracking-tighter">Future Roadmap</h2>
+                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20">
+                     <Rocket size={16} className="text-blue-400"/> 
+                     <span className="text-blue-300 font-mono text-[10px] tracking-widest uppercase italic">Architected by Team SUPRA</span>
+                 </div>
+             </div>
 
-            {/* Timeline Container */}
-            <div className="relative max-w-4xl mx-auto px-4">
-                {/* Vertical Line */}
-                <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 via-purple-500 to-transparent opacity-30 rounded-full"></div>
+             <div className="relative max-w-4xl mx-auto px-4">
+                 <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500/40 via-transparent to-transparent rounded-full opacity-20"></div>
 
-                {/* Item 1: VR */}
-                <div className="relative flex items-center justify-between mb-16 flex-col md:flex-row">
-                    {/* Left Content (Desktop) */}
-                    <div className="order-2 md:order-1 md:w-[45%] w-full pl-12 md:pl-0 md:pr-12 md:text-right">
-                        <GlassCard className="p-6 relative group hover:bg-white/5 transition-colors" color="indigo">
-                            <div className="absolute top-1/2 -right-3 w-6 h-6 bg-indigo-900/50 rotate-45 transform -translate-y-1/2 border-r border-t border-indigo-500/30 hidden md:block backdrop-blur-xl"></div>
-                            <div className="flex items-center md:justify-end gap-4 mb-3">
-                                <h3 className="text-xl font-bold text-white">Immersive VR Labs</h3>
-                                <div className="p-2 rounded-lg bg-indigo-500/20 text-indigo-400 shrink-0">
-                                    <Glasses size={20} />
-                                </div>
-                            </div>
-                            <p className="text-gray-400 text-sm">Full WebXR support to conduct experiments in a fully immersive 3D environment using VR headsets like Quest 3 and Vision Pro.</p>
-                        </GlassCard>
-                    </div>
-                    
-                    {/* Center Node */}
-                    <div className="order-1 md:order-2 absolute left-4 md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-indigo-500 border-4 border-slate-900 z-10 shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
+                 <div className="relative flex items-center justify-between mb-16 flex-col md:flex-row">
+                     <div className="order-2 md:order-1 md:w-[45%] w-full pl-12 md:pl-0 md:pr-12 md:text-right">
+                         <GlassCard className="p-8 relative border-t border-l border-white/10" color="blue">
+                             <div className="flex items-center md:justify-end gap-4 mb-4">
+                                 <h3 className="text-xl font-bold text-white italic">Immersive VR Labs</h3>
+                                 <div className="p-3 rounded-xl bg-blue-500/20 text-blue-400">
+                                     <Glasses size={20} />
+                                 </div>
+                             </div>
+                             <p className="text-gray-400 text-xs font-medium uppercase tracking-[0.2em] leading-relaxed">Full WebXR support for Quest 3 and Vision Pro. Virtual reality integration for atomic-scale physics precision.</p>
+                         </GlassCard>
+                     </div>
+                     <div className="order-1 md:order-2 absolute left-4 md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-blue-500 border-4 border-[#020617] z-10 shadow-[0_0_20px_rgba(59,130,246,0.5)]"></div>
+                     <div className="order-3 md:w-[45%] w-full hidden md:block"></div>
+                 </div>
 
-                    {/* Right Spacer (Desktop) */}
-                    <div className="order-3 md:w-[45%] w-full hidden md:block"></div>
-                </div>
+                 <div className="relative flex items-center justify-between mb-16 flex-col md:flex-row">
+                     <div className="order-3 md:order-1 md:w-[45%] w-full hidden md:block"></div>
+                     <div className="order-1 md:order-2 absolute left-4 md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-emerald-500 border-4 border-[#020617] z-10 shadow-[0_0_20px_rgba(16,185,129,0.5)]"></div>
+                     <div className="order-2 md:order-3 md:w-[45%] w-full pl-12 md:pl-12">
+                         <GlassCard className="p-8 relative border-t border-l border-white/10" color="emerald">
+                             <div className="flex items-center gap-4 mb-4">
+                                 <div className="p-3 rounded-xl bg-emerald-500/20 text-emerald-400">
+                                     <Zap size={20} />
+                                 </div>
+                                 <h3 className="text-xl font-bold text-white italic">Real-time Telemetry</h3>
+                             </div>
+                             <p className="text-gray-400 text-xs font-medium uppercase tracking-[0.2em] leading-relaxed">Live pedagogical data streaming for students to track precision and error margins in real-time, bridging digital/physical outcomes.</p>
+                         </GlassCard>
+                     </div>
+                 </div>
 
-                {/* Item 2: Multiplayer (Right Side) */}
-                <div className="relative flex items-center justify-between mb-16 flex-col md:flex-row">
-                    <div className="order-3 md:order-1 md:w-[45%] w-full hidden md:block"></div>
-                    
-                    <div className="order-1 md:order-2 absolute left-4 md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-pink-500 border-4 border-slate-900 z-10 shadow-[0_0_15px_rgba(236,72,153,0.5)]"></div>
+                 <div className="relative flex items-center justify-between mb-16 flex-col md:flex-row">
+                     <div className="order-2 md:order-1 md:w-[45%] w-full pl-12 md:pl-0 md:pr-12 md:text-right">
+                         <GlassCard className="p-8 relative border-t border-l border-white/10" color="rose">
+                             <div className="flex items-center md:justify-end gap-4 mb-4">
+                                 <h3 className="text-xl font-bold text-white italic">Voice-AI Mentorship</h3>
+                                 <div className="p-3 rounded-xl bg-rose-500/20 text-rose-400">
+                                     <Mic size={20} />
+                                 </div>
+                             </div>
+                             <p className="text-gray-400 text-xs font-medium uppercase tracking-[0.2em] leading-relaxed">Deep-learning voice assistant with regional language support (Hindi, Kannada, Tamil) for real-time safety and theory guidance.</p>
+                         </GlassCard>
+                     </div>
+                     <div className="order-1 md:order-2 absolute left-4 md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-rose-500 border-4 border-[#020617] z-10 shadow-[0_0_20px_rgba(244,63,94,0.5)]"></div>
+                     <div className="order-3 md:w-[45%] w-full hidden md:block"></div>
+                 </div>
 
-                    <div className="order-2 md:order-3 md:w-[45%] w-full pl-12 md:pl-12">
-                        <GlassCard className="p-6 relative group hover:bg-white/5 transition-colors" color="pink">
-                            <div className="absolute top-1/2 -left-3 w-6 h-6 bg-pink-900/50 rotate-45 transform -translate-y-1/2 border-l border-b border-pink-500/30 hidden md:block backdrop-blur-xl"></div>
-                            <div className="flex items-center gap-4 mb-3">
-                                <div className="p-2 rounded-lg bg-pink-500/20 text-pink-400 shrink-0">
-                                    <Users size={20} />
-                                </div>
-                                <h3 className="text-xl font-bold text-white">Multiplayer Labs</h3>
-                            </div>
-                            <p className="text-gray-400 text-sm">Real-time synchronization allowing students to work on the same virtual apparatus simultaneously from different locations.</p>
-                        </GlassCard>
-                    </div>
-                </div>
+                 <div className="relative flex items-center justify-between mb-16 flex-col md:flex-row">
+                     <div className="order-3 md:order-1 md:w-[45%] w-full hidden md:block"></div>
+                     <div className="order-1 md:order-2 absolute left-4 md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-amber-500 border-4 border-[#020617] z-10 shadow-[0_0_20px_rgba(245,158,11,0.5)]"></div>
+                     <div className="order-2 md:order-3 md:w-[45%] w-full pl-12 md:pl-12">
+                         <GlassCard className="p-8 relative border-t border-l border-white/10" color="amber">
+                             <div className="flex items-center gap-4 mb-4">
+                                 <div className="p-3 rounded-xl bg-amber-500/20 text-amber-400">
+                                     <Users size={20} />
+                                 </div>
+                                 <h3 className="text-xl font-bold text-white italic">Collaborative Labs</h3>
+                             </div>
+                             <p className="text-gray-400 text-xs font-medium uppercase tracking-[0.2em] leading-relaxed">Multi-user lab instances allowing students across different geographies to collaborate on the same complex scientific apparatus.</p>
+                         </GlassCard>
+                     </div>
+                 </div>
 
-                {/* Item 3: Voice AI (Left Side) */}
-                <div className="relative flex items-center justify-between mb-16 flex-col md:flex-row">
-                    <div className="order-2 md:order-1 md:w-[45%] w-full pl-12 md:pl-0 md:pr-12 md:text-right">
-                        <GlassCard className="p-6 relative group hover:bg-white/5 transition-colors" color="cyan">
-                            <div className="absolute top-1/2 -right-3 w-6 h-6 bg-cyan-900/50 rotate-45 transform -translate-y-1/2 border-r border-t border-cyan-500/30 hidden md:block backdrop-blur-xl"></div>
-                            <div className="flex items-center md:justify-end gap-4 mb-3">
-                                <h3 className="text-xl font-bold text-white">Supra Voice Assistant</h3>
-                                <div className="p-2 rounded-lg bg-cyan-500/20 text-cyan-400 shrink-0">
-                                    <Mic size={20} />
-                                </div>
-                            </div>
-                            <p className="text-gray-400 text-sm">Hands-free lab operation powered by Team SUPRA's NLP engine. "Hey Vijnana, add 10ml HCL" or "Record observation".</p>
-                        </GlassCard>
-                    </div>
-                    
-                    <div className="order-1 md:order-2 absolute left-4 md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-cyan-500 border-4 border-slate-900 z-10 shadow-[0_0_15px_rgba(6,182,212,0.5)]"></div>
-
-                    <div className="order-3 md:w-[45%] w-full hidden md:block"></div>
-                </div>
-
-                {/* Item 4: Offline Mode (Right Side) */}
-                <div className="relative flex items-center justify-between mb-16 flex-col md:flex-row">
-                    <div className="order-3 md:order-1 md:w-[45%] w-full hidden md:block"></div>
-                    
-                    <div className="order-1 md:order-2 absolute left-4 md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-amber-500 border-4 border-slate-900 z-10 shadow-[0_0_15px_rgba(245,158,11,0.5)]"></div>
-
-                    <div className="order-2 md:order-3 md:w-[45%] w-full pl-12 md:pl-12">
-                        <GlassCard className="p-6 relative group hover:bg-white/5 transition-colors" color="amber">
-                            <div className="absolute top-1/2 -left-3 w-6 h-6 bg-amber-900/50 rotate-45 transform -translate-y-1/2 border-l border-b border-amber-500/30 hidden md:block backdrop-blur-xl"></div>
-                            <div className="flex items-center gap-4 mb-3">
-                                <div className="p-2 rounded-lg bg-amber-500/20 text-amber-400 shrink-0">
-                                    <WifiOff size={20} />
-                                </div>
-                                <h3 className="text-xl font-bold text-white">Offline Access</h3>
-                            </div>
-                            <p className="text-gray-400 text-sm">PWA capability with local caching allowing complete lab access in remote areas without active internet connection.</p>
-                        </GlassCard>
-                    </div>
-                </div>
-
-                {/* Item 5: Business Plan / Brand Integration (Left Side) */}
-                <div className="relative flex items-center justify-between mb-12 flex-col md:flex-row">
-                    <div className="order-2 md:order-1 md:w-[45%] w-full pl-12 md:pl-0 md:pr-12 md:text-right">
-                        <GlassCard className="p-6 relative group hover:bg-white/5 transition-colors" color="emerald">
-                            <div className="absolute top-1/2 -right-3 w-6 h-6 bg-emerald-900/50 rotate-45 transform -translate-y-1/2 border-r border-t border-emerald-500/30 hidden md:block backdrop-blur-xl"></div>
-                            <div className="flex items-center md:justify-end gap-4 mb-3">
-                                <h3 className="text-xl font-bold text-white">B2B Monetization & Ads</h3>
-                                <div className="p-2 rounded-lg bg-emerald-500/20 text-emerald-400 shrink-0">
-                                    <Rocket size={20} />
-                                </div>
-                            </div>
-                            <p className="text-gray-400 text-sm">A strategic, non-intrusive revenue model. We will implement high-quality 3D product placement where educational sponsors can feature their brand logo and name directly on laboratory equipment. This provides targeted visibility for advertisers while ensuring the core product remains 100% free for students.</p>
-                        </GlassCard>
-                    </div>
-                    
-                    <div className="order-1 md:order-2 absolute left-4 md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-emerald-500 border-4 border-slate-900 z-10 shadow-[0_0_15px_rgba(16,185,129,0.5)]"></div>
-
-                    <div className="order-3 md:w-[45%] w-full hidden md:block"></div>
-                </div>
-
-            </div>
-         </div>
-
+                 <div className="relative flex items-center justify-between mb-16 flex-col md:flex-row">
+                     <div className="order-2 md:order-1 md:w-[45%] w-full pl-12 md:pl-0 md:pr-12 md:text-right">
+                         <GlassCard className="p-8 relative border-t border-l border-white/10" color="indigo">
+                             <div className="flex items-center md:justify-end gap-4 mb-4">
+                                 <h3 className="text-xl font-bold text-white italic">Cloud-Ray Physics</h3>
+                                 <div className="p-3 rounded-xl bg-indigo-500/20 text-indigo-400">
+                                     <Cpu size={20} />
+                                 </div>
+                             </div>
+                             <p className="text-gray-400 text-xs font-medium uppercase tracking-[0.2em] leading-relaxed">Server-side physics calculation cluster providing high-end raytraced visualizations for students on low-specification mobile devices.</p>
+                         </GlassCard>
+                     </div>
+                     <div className="order-1 md:order-2 absolute left-4 md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-indigo-500 border-4 border-[#020617] z-10 shadow-[0_0_20px_rgba(99,102,241,0.5)]"></div>
+                     <div className="order-3 md:w-[45%] w-full hidden md:block"></div>
+                 </div>
+             </div>
+          </div>
        </div>
     </div>
   );
 };
 
 export default About;
- 

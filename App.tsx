@@ -27,6 +27,8 @@ import SyllabusSelector from './pages/SyllabusSelector';
 import TeacherLogin from './pages/TeacherLogin';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
+import Blog from './pages/Blog';
+import BlogDetail from './pages/BlogDetail';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -72,6 +74,8 @@ const AppContent: React.FC = () => {
           <Route path="/tutor" element={<AITutor />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
           <Route
             path="/student-dashboard"
             element={

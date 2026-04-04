@@ -10,7 +10,7 @@ const connectDB = async () => {
 
   try {
     await mongoose.connect(mongoURI);
-    console.log(`✅ MongoDB Connected Sync: ${mongoose.connection.host}`);
+    console.log(`[DB] MongoDB Connected: ${mongoose.connection.host}`);
   } catch (error: any) {
     // Silently proceed, as Firebase is the primary driver
   }

@@ -84,3 +84,60 @@ export interface NavItem {
   label: string;
   path: string;
 }
+
+// --- Business Model & Partnerships ---
+
+export type PlanType = 'FREE' | 'STUDENT_PRO' | 'SCHOOL_PLAN' | 'GOV_PARTNER';
+
+export interface UserUsage {
+  labsOpenedToday: number;
+  aiQueriesUsedToday: number;
+  totalLabsCompleted: number;
+  lastActiveDate: any; // Firestore Timestamp
+  referralCode?: string;
+  referredBy?: string;
+  referralCount: number;
+  proDaysEarned: number;
+  examDate?: any; // Firestore Timestamp
+}
+
+export interface UserProfile {
+  uid: string;
+  email: string;
+  displayName: string;
+  role: 'student' | 'teacher' | 'school_admin' | 'gov_admin' | 'ngo_admin' | 'superadmin';
+  plan: PlanType;
+  schoolId?: string;
+  isGovSchool?: boolean;
+  schoolName?: string;
+  district?: string;
+  state?: string;
+  usage?: UserUsage;
+}
+
+export interface NGOCohort {
+  id: string;
+  ngoName: string;
+  cohortName: string;
+  studentIds: string[];
+  sponsoredUntil: any; // Firestore Timestamp
+  district: string;
+  state: string;
+  impactScore?: number;
+}
+
+export interface GovSchool {
+  udiseCode: string;
+  schoolName: string;
+  district: string;
+  state: string;
+  contactEmail: string;
+  status: 'Invited' | 'Activated' | 'Active';
+  onboardedAt?: any; // Firestore Timestamp
+}
+
+export interface ExamCountdownProps {
+  examDate: Date;
+  completedLabs: number;
+  totalRequiredLabs: number;
+}
