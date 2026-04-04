@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@config "./tailwind.config.js";
+
+/* Global styles (minimal to satisfy /index.css reference)
+   Tailwind is loaded via vite, so keep this lightweight. */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}

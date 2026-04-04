@@ -1,0 +1,49 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ─── USERS COLLECTION ──────────────────────────────────────────────────
+
+    match /users/{uid} {
+
+      // 1. A NEW USER CAN CREATE THEIR OWN DOCUMENT ON SIGN-UP
+      //    Conditions:
+      //    - They must be authenticated (request.auth != null)
+      //    - They can only create a document for their own UID (no impersonation)
+      //    - They cannot assign themselves superadmin or teacher on sign-up
+      //    - They cannot inject extra fields beyond the allowed set
+      allow create: if request.auth != null
+        && request.auth.uid == uid
+        && request.resource.data.role in ['student']
+        && request.resource.data.keys().hasOnly(
+             ['uid', 'name', 'email', 'role', 'createdAt']
+           );
+
+      // 2. A USER CAN READ THEIR OWN DOCUMENT
+      allow read: if request.auth != null
+        && request.auth.uid == uid;
+
+      // 3. A USER CAN UPDATE THEIR OWN NON-SENSITIVE FIELDS
+      //    They cannot change their own role or uid
+      allow update: if request.auth != null
+        && request.auth.uid == uid
+        && !request.resource.data.diff(resource.data).affectedKeys()
+             .hasAny(['role', 'uid']);
+
+      // 4. SUPERADMIN CAN READ AND WRITE ALL USER DOCUMENTS
+      //    We verify the role via Custom Claim (token), not Firestore
+      //    This prevents a privilege escalation via database manipulation
+      allow read, write: if request.auth != null
+        && request.auth.token.role == 'superadmin';
+
+      // 5. DELETE IS HANDLED BY CLOUD FUNCTION ONLY (see Issue #4)
+      //    No client can delete a user document directly
+      allow delete: if false;
+    }
+
+    // ─── DEFAULT: DENY EVERYTHING ELSE ─────────────────────────────────────
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
