@@ -1,4 +1,4 @@
-# Vijnana Lab (विज्ञान लैब) - Experience Science 🔬
+# Vijnana Lab  - Experience Science 🔬
 
 **Vijnana Lab** is a next-generation virtual science laboratory tailored for Pre-University (Class 11 & 12) students across CBSE, ICSE, and Karnataka PUC boards. It transforms traditional science practical learning through immersive 3D simulations, real-world interactivity, and context-aware artificial intelligence.
 
