@@ -309,3 +309,4 @@ const ResonanceTubeLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default ResonanceTubeLab;
+ 

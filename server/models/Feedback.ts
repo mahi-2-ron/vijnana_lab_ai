@@ -22,3 +22,4 @@ const FeedbackSchema = new Schema<IFeedback>({
 }, { timestamps: true });
 
 export default mongoose.model<IFeedback>('Feedback', FeedbackSchema);
+ 

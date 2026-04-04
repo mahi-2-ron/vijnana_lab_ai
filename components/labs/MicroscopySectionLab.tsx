@@ -310,3 +310,4 @@ const MicroscopySectionLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default MicroscopySectionLab;
+ 

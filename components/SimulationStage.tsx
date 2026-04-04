@@ -442,3 +442,4 @@ const SimulationStage: React.FC<SimulationStageProps> = ({ subjectId, labId, hex
 };
 
 export default SimulationStage;
+ 

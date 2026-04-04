@@ -236,3 +236,4 @@ const OsmosisLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default OsmosisLab;
+ 

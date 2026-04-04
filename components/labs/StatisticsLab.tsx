@@ -196,3 +196,4 @@ const StatisticsLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default StatisticsLab;
+ 

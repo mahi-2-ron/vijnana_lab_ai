@@ -68,3 +68,4 @@ export const getAllUsers = async (): Promise<UserRecord[]> => {
     throw error;
   }
 };
+ 

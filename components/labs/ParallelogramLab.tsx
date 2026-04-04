@@ -204,3 +204,4 @@ const ParallelogramLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default ParallelogramLab;
+ 

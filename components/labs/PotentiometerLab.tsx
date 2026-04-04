@@ -248,3 +248,4 @@ const PotentiometerLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default PotentiometerLab;
+ 

@@ -52,4 +52,4 @@ export const sendMessageToGemini = async (chat: ChatProxy, message: string, maxR
       }
     }
   };
-};
+}; 

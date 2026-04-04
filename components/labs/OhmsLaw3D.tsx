@@ -249,3 +249,4 @@ const OhmsLaw3D: React.FC<Props> = ({ hex }) => {
 };
 
 export default OhmsLaw3D;
+ 

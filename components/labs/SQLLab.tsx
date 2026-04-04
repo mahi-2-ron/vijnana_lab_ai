@@ -260,3 +260,4 @@ const SQLLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default SQLLab;
+ 

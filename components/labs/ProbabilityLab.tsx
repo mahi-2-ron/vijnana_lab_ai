@@ -191,3 +191,4 @@ const ProbabilityLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default ProbabilityLab;
+ 

@@ -262,3 +262,4 @@ const PrismLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default PrismLab;
+ 

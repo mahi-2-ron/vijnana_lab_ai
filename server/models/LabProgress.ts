@@ -34,3 +34,4 @@ const LabProgressSchema = new Schema<ILabProgress>({
 LabProgressSchema.index({ firebaseUID: 1, subjectId: 1, labId: 1 }, { unique: true });
 
 export default mongoose.model<ILabProgress>('LabProgress', LabProgressSchema);
+ 

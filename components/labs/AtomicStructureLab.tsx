@@ -181,3 +181,4 @@ const AtomicStructureLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default AtomicStructureLab;
+ 

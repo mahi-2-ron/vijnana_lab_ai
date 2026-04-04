@@ -302,3 +302,4 @@ const PotashAlumLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default PotashAlumLab;
+ 

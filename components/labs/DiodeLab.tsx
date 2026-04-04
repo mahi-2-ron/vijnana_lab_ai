@@ -291,3 +291,4 @@ export default function DiodeLab({ hex }: DiodeLabProps) {
     </div>
   );
 }
+ 

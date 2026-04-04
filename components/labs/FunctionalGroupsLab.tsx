@@ -261,3 +261,4 @@ const FunctionalGroupsLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default FunctionalGroupsLab;
+ 

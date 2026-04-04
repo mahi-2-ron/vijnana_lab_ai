@@ -311,3 +311,4 @@ const PendulumLab: React.FC<{ hex: string }> = ({ hex }) => {
 };
 
 export default PendulumLab;
+ 

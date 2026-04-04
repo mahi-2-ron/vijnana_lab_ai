@@ -245,3 +245,4 @@ const EnthalpyLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default EnthalpyLab;
+ 

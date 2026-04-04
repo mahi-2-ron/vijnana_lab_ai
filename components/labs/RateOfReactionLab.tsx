@@ -260,3 +260,4 @@ const RateOfReactionLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default RateOfReactionLab;
+ 

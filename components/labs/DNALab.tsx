@@ -229,3 +229,4 @@ const DNALab: React.FC<Props> = ({ hex }) => {
 };
 
 export default DNALab;
+ 

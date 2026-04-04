@@ -387,3 +387,4 @@ const ScientificPanel: React.FC<ScientificPanelProps> = ({ labId, hex, sliderVal
 };
 
 export default ScientificPanel;
+ 

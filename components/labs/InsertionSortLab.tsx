@@ -201,3 +201,4 @@ const InsertionSortLab: React.FC<InsertionSortLabProps> = ({ hex }) => {
 };
 
 export default InsertionSortLab;
+ 

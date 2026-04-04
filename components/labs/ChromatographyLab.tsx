@@ -255,3 +255,4 @@ const ChromatographyLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default ChromatographyLab;
+ 

@@ -194,3 +194,4 @@ const PlasmolysisLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default PlasmolysisLab;
+ 

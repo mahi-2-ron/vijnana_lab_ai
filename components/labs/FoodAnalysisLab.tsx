@@ -272,3 +272,4 @@ const FoodAnalysisLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default FoodAnalysisLab;
+ 

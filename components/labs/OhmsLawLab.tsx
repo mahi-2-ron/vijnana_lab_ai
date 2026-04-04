@@ -413,3 +413,4 @@ const OhmsLawLab: React.FC<{ hex: string; onLog?: (data: any) => void }> = ({ he
 };
 
 export default OhmsLawLab;
+ 

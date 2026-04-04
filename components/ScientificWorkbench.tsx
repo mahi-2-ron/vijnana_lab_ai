@@ -272,3 +272,4 @@ const ScientificWorkbench: React.FC<ScientificWorkbenchProps> = ({
 };
 
 export default ScientificWorkbench;
+ 

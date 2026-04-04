@@ -129,3 +129,4 @@ const DraggableSlider: React.FC<DraggableSliderProps> = ({
 };
 
 export default DraggableSlider;
+ 

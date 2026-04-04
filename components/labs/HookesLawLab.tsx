@@ -245,3 +245,4 @@ const HookesLawLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default HookesLawLab;
+ 

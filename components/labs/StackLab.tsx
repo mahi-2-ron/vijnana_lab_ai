@@ -271,3 +271,4 @@ const StackLab: React.FC<StackLabProps> = ({ hex }) => {
 };
 
 export default StackLab;
+ 

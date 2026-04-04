@@ -177,3 +177,4 @@ const BinomialTheoremLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default BinomialTheoremLab;
+ 

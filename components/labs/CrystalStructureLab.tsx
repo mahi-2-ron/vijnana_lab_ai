@@ -226,3 +226,4 @@ const CrystalStructureLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default CrystalStructureLab;
+ 

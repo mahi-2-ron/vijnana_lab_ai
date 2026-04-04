@@ -314,3 +314,4 @@ const PHLabSimulation: React.FC<PHLabSimulationProps> = ({ hex }) => {
 };
 
 export default PHLabSimulation;
+ 

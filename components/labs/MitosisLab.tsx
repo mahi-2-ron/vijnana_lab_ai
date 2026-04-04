@@ -262,3 +262,4 @@ const MitosisLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default MitosisLab;
+ 

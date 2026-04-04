@@ -326,3 +326,4 @@ const MohrsaltLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default MohrsaltLab;
+ 

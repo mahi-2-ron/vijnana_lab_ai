@@ -285,3 +285,4 @@ const SpherometerLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default SpherometerLab;
+ 

@@ -41,3 +41,4 @@ const BrainstormProjectSchema = new Schema<IBrainstormProject>({
 }, { timestamps: true });
 
 export default mongoose.model<IBrainstormProject>('BrainstormProject', BrainstormProjectSchema);
+ 

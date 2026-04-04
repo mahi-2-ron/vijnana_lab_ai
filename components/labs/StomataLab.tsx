@@ -313,3 +313,4 @@ const StomataLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default StomataLab;
+ 

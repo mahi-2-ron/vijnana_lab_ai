@@ -280,3 +280,4 @@ const MeiosisLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default MeiosisLab;
+ 

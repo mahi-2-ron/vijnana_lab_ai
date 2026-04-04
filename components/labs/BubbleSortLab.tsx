@@ -245,3 +245,4 @@ const BubbleSortLab: React.FC<BubbleSortLabProps> = ({ hex }) => {
 };
 
 export default BubbleSortLab;
+ 

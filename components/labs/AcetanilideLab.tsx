@@ -315,3 +315,4 @@ const AcetanilideLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default AcetanilideLab;
+ 

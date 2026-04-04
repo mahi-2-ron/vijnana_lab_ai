@@ -30,3 +30,4 @@ const ProtectedRoute = ({ children, allowedRoles }: Props) => {
 };
 
 export default ProtectedRoute;
+ 

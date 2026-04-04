@@ -243,3 +243,4 @@ const SonometerLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default SonometerLab;
+ 

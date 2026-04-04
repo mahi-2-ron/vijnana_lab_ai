@@ -306,3 +306,4 @@ const PendulumLab3D: React.FC<Props> = ({ hex }) => {
 };
 
 export default PendulumLab3D;
+ 

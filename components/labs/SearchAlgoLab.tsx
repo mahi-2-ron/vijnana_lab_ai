@@ -220,3 +220,4 @@ const SearchAlgoLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default SearchAlgoLab;
+ 

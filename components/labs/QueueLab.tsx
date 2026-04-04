@@ -302,3 +302,4 @@ export default function QueueLab({ hex }: QueueLabProps) {
     </div>
   );
 }
+ 

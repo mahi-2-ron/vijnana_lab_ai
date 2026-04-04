@@ -523,3 +523,4 @@ const MathLab: React.FC<MathLabProps> = ({ hex, labId }) => {
 };
 
 export default MathLab;
+ 

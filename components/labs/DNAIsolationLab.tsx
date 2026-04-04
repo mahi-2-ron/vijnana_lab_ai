@@ -306,3 +306,4 @@ const DNAIsolationLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default DNAIsolationLab;
+ 

@@ -257,3 +257,4 @@ const PlantPopulationLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default PlantPopulationLab;
+ 

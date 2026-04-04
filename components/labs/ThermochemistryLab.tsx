@@ -282,3 +282,4 @@ const ThermochemistryLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default ThermochemistryLab;
+ 

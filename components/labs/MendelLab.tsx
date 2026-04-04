@@ -232,3 +232,4 @@ const MendelLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default MendelLab;
+ 

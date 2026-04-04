@@ -186,3 +186,4 @@ const LogicGatesLab: React.FC<LogicGatesLabProps> = ({ hex }) => {
 };
 
 export default LogicGatesLab;
+ 

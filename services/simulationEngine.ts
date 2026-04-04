@@ -384,3 +384,4 @@ export function analyzeReadings(readings: number[]): ErrorAnalysis {
     absolute_uncertainty: parseFloat((2 * std_err).toFixed(5)), // 95% CI
   };
 }
+ 

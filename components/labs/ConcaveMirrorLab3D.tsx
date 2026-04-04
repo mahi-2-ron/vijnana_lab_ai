@@ -293,3 +293,4 @@ export default function ConcaveMirrorLab3D({ hex }: ConcaveMirrorLab3DProps) {
     </div>
   );
 }
+ 

@@ -315,3 +315,4 @@ const PollinationLab: React.FC<Props> = ({ hex }) => {
 };
 
 export default PollinationLab;
+ 

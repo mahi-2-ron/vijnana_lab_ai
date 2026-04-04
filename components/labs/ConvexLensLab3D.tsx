@@ -340,3 +340,4 @@ export default function ConvexLensLab3D({ hex }: ConvexLensLabProps) {
     </div>
   );
 }
+ 
