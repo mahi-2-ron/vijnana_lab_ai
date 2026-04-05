@@ -118,16 +118,8 @@ vijnana-lab/
 
 ---
 
-## 📸 Referral Visuals
-
-| Apparatus | AI Guidance | Institutional Dashboard |
-| :---: | :---: | :---: |
-| ![Lab Demo](https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=400) | ![AI Tutor](https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=400) | ![Admin Panel](https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=400) |
-| *High-precision manipulation* | *Context-aware feedback* | *Class-wide analytics* |
-
----
 
 ## 🛡 License & Team
-Vijnana Lab is developed by **Team Supra** for the Hackolympic Innovation Challenge. All rights reserved. The License [LICENSE] is available.
+Vijnana Lab is developed by **Team Supra** for the Hackolympic Innovation Challenge. All rights reserved. 
 
 
