@@ -1,4 +1,3 @@
-# <p align="center"><img src="public/readme_hero.png" width="800" alt="Vijnana Lab Hero"></p>
 
 <h1 align="center">🔬 Vijnana Lab — Experience Science</h1>
 
