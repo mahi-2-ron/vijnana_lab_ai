@@ -1,72 +1,134 @@
-# Vijnana Lab  - Experience Science 🔬
+# <p align="center"><img src="public/readme_hero.png" width="800" alt="Vijnana Lab Hero"></p>
 
-**Vijnana Lab** is a next-generation virtual science laboratory tailored for Pre-University (Class 11 & 12) students across CBSE, ICSE, and Karnataka PUC boards. It transforms traditional science practical learning through immersive 3D simulations, real-world interactivity, and context-aware artificial intelligence.
+<h1 align="center">🔬 Vijnana Lab — Experience Science</h1>
 
-## ✨ Key Features Built
+<p align="center">
+  <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black" alt="React">
+  <img src="https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Fast_API-Gemini_2.0-orange?logo=google&logoColor=white" alt="Gemini AI">
+  <img src="https://img.shields.io/badge/Graphics-React_Three_Fiber-black?logo=three.js&logoColor=white" alt="R3F">
+  <img src="https://img.shields.io/badge/Auth-Firebase-FFCA28?logo=firebase&logoColor=black" alt="Firebase">
+</p>
 
-### 1. Robust Role-Based Access Control (RBAC)
-- **Firebase Custom Claims**: Securely segregates user authorizations directly parsed in identity tokens, avoiding front-end bypasses.
-- **Dedicated Portals**:
-  - **Superadmin Dashboard**: Advanced interface to provision faculty, track platform statistics, and assign subjects safely.
-  - **Teacher Dashboard**: Secure, dedicated view for instructors.
-  - **Student Dashboard**: Individualized sandbox mapping and progress tracking.
+<p align="center">
+  <b>Democratizing high-fidelity science laboratory education for Class 11 & 12 students across Bharat.</b>
+</p>
 
-### 2. Secure Backend API Integrations
-- **Privileged Server Routes**: Created dedicated Express endpoints (e.g., `/api/users/create-teacher`) using the **Firebase Admin SDK**. This securely abstracts the user creation pipeline for roles like 'Teacher', overriding client-side state collisions and `firestore.rules` rejections.
-- **Isolated Database Architectures**: The backend handles **MongoDB** connections gracefully. If a local instance (`127.0.0.1:27017`) is failing or absent, the server logs a warning and proceeds without crashing, ensuring Firebase-powered endpoints remain 100% accessible.
+---
 
-### 3. Interactive 3D Modals & AI Integration
-- **Immersive Labs**: Fully functional WebGL-based laboratory experiments built in React Three Fiber (e.g., Vernier Calipers, Spherometer, Prism).
-- **Floating AI Tutor**: A globally accessible, draggable AI widget. It communicates via a **Secure Backend Proxy** to Gemini 2.0 Flash (`@google/genai`), ensuring your API Key is never exposed to the client. It detects exactly which lab experiment you have open and anchors its guidance to that specific syllabus.
+## 🚩 Problem Statement
+In the current educational landscape of Bharat, millions of students in rural or under-funded Pre-University colleges lack access to functional physics and chemistry laboratories. Equipment like Vernier Calipers, Spectrometers, or Titration setups are often broken, missing, or one-of-a-kind, leading to **"Rote Learning"**—where students memorize practicals without ever touching the apparatus.
 
-### 4. Responsive & Polished UI Design
-- **Glass-morphism Concepts**: The application uses high-end, premium glassy components for a futuristic "Lab" feel.
-- **Framer Motion Elements**: Includes micro-animations and smooth layout transitions (such as title locale-cycling in the Navigation Bar) for elevated user engagement.
+## 💡 Proposed Solution
+**Vijnana Lab** provides a high-fidelity, interactive, and safe virtual sandbox for scientific discovery. By leveraging **WebGL (React Three Fiber)** and **Physics Engines**, we bring the laboratory to the student's smartphone or PC.
+
+- **Immersive 3D Manipulation**: Touch or mouse-driven interaction with high-precision instruments.
+- **AI-Guided Discovery**: A Gemini 2.0-powered assistant that tracks experiment state and provides contextual hints.
+- **Teacher-Led Governance**: A robust role-based dashboard for educators to track class-wide progress.
+- **Zero Barrier to Entry**: Works in any browser without expensive hardware.
+
+---
+
+## 🏗 System Architecture
+
+```mermaid
+graph TD
+    User((Student/Teacher)) -->|HTTPS| Frontend[React 19 Frontend]
+    Frontend -->|Three.js| WebGL[3D Simulation Engine]
+    Frontend -->|REST| Backend[Express.js API Server]
+    
+    subgraph "Identity & Auth"
+    Frontend -->|SDK| Firebase_Auth[Firebase Auth]
+    Backend -->|Admin SDK| Firebase_Claims[Custom RBAC Claims]
+    end
+    
+    subgraph "Data & Intelligence"
+    Backend -->|Mongoose| MongoDB[(MongoDB - Simulation States)]
+    Backend -->|GenAI SDK| Gemini[Gemini 2.0 Flash AI]
+    end
+    
+    Frontend -->|Draggable Widget| AI_Tutor[Floating AI Mentor]
+```
+
+---
+
+## 📂 Project Structure
+
+```bash
+vijnana-lab/
+├── components/          # Reusable UI (GlassCards, Navbar, AIFloatingTutor)
+├── pages/               # Functional Views (ApparatusLabs, Dashboards, About)
+├── server/               # Express.js Backend (Secure AI Proxy, RBAC Admin)
+│   ├── routes/          # API Endpoint Definitions
+│   └── models/          # MongoDB Schema for Progress Tracking
+├── services/            # Client-side Logic (Firebase, AI Fetching)
+├── public/              # High-fidelity Assets & Textures (Hero Banner)
+└── App.tsx              # Main Routing & Role Guards
+```
 
 ---
 
 ## 💻 Tech Stack
-- **Frontend**: React 19, TypeScript, Vite, Tailwind CSS (v4), Framer Motion, React-Router
-- **Backend**: Node.js, Express, TSX, Cors
-- **Database / Auth**: Firebase (Authentication & Cloud Firestore), MongoDB (Mongoose)
-- **3D Graphics**: Three.js, React Three Fiber (`@react-three/fiber`), Drei
-- **Artificial Intelligence**: `@google/genai` (Gemini 2.0 Flash) - *Integrated via Secure Backend Proxy*
+
+| Layer | Technologies |
+| :--- | :--- |
+| **Core** | React 19, TypeScript, Vite |
+| **Styling** | Tailwind CSS v4 (Glassmorphism), Framer Motion |
+| **3D Rendering** | Three.js, React Three Fiber, Drei |
+| **Intelligence** | Gemini 2.0 Flash AI (via Secure Backend Proxy) |
+| **Identity** | Firebase Authentication + Custom Role Claims |
+| **Database** | Cloud Firestore + MongoDB (Mongoose) |
 
 ---
 
-## 🛠 Run Locally
+## 🚀 Getting Started
 
-**Prerequisites:** Node.js (v18+), Git. (MongoDB instance is purely optional based on module usage).
+### Prerequisites
+- **Node.js** (v18.0 or higher)
+- **Git**
+- **Firebase Project** (with Service Account Key)
 
-1. **Clone the repository:**
+### Installation
+
+1. **Clone the Project**
    ```bash
-   git clone https://github.com/srujanpalled/vijnana-lab.git
+   git clone https://github.com/mahi-2-ron/vijnana_lab_ai.git
    cd vijnana-lab
    ```
 
-2. **Install dependencies:**
+2. **Install Dependencies**
    ```bash
    npm install
    ```
 
-3. **Environment Configuration:**
-   Create a `.env.local` file in the root directory:
+3. **Environment Setup**
+   Create a `.env.local` file in the root:
    ```env
-   GEMINI_API_KEY=your_gemini_api_key_here
-   MONGO_URI=mongodb://127.0.0.1:27017/vijnanalab # (Optional)
+   GEMINI_API_KEY=your_google_ai_key
+   MONGO_URI=your_mongodb_connection_string
    SERVER_PORT=5000
    ```
-   *Ensure you have `scripts/serviceAccountKey.json` initialized for Firebase Admin privileges locally.* 
+   *Note: Ensure `server/scripts/serviceAccountKey.json` is present for RBAC features.*
 
-4. **Start the Complete Full-Stack Environment:**
-   Run both the frontend (Vite) and backend (Express) concurrently:
+4. **Launch the Full-Stack Portal**
    ```bash
    npm run dev:full
    ```
-   *Frontend is usually mapped to `http://localhost:3000` while Express serves API calls at `http://localhost:5000`.*
+   - **Frontend**: http://localhost:5173
+   - **Backend Health**: http://localhost:5000/api/health
 
 ---
-## 🤝 Contribution (Hackolympic)
-This codebase is part of the `vijnana_lab_hackolympic-` submission. All features, UI upgrades, and 3D implementations are designed to elevate digital education accessibility!
 
-> Developed by Team Supra.
+## 📸 Referral Visuals
+
+| Apparatus | AI Guidance | Institutional Dashboard |
+| :---: | :---: | :---: |
+| ![Lab Demo](https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=400) | ![AI Tutor](https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=400) | ![Admin Panel](https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=400) |
+| *High-precision manipulation* | *Context-aware feedback* | *Class-wide analytics* |
+
+---
+
+## 🛡 License & Team
+Vijnana Lab is developed by **Team Supra** for the Hackolympic Innovation Challenge. All rights reserved.
+
+> **Our Vision**: To inspire the next 1M+ scientists in Bharat. 🇮🇳
