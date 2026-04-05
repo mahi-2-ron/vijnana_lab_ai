@@ -128,6 +128,6 @@ vijnana-lab/
 ---
 
 ## 🛡 License & Team
-Vijnana Lab is developed by **Team Supra** for the Hackolympic Innovation Challenge. All rights reserved.
+Vijnana Lab is developed by **Team Supra** for the Hackolympic Innovation Challenge. All rights reserved. The Lisence[LICENSE] is available.
 
-> **Our Vision**: To inspire the next 1M+ scientists in Bharat. 🇮🇳
+
