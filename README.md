@@ -30,7 +30,7 @@ In the current educational landscape of Bharat, millions of students in rural or
 
 ## 🏗 System Architecture
 
-```mermaid
+
 graph TD
     User["Student / Teacher"] --> Frontend["React 19 Frontend"]
     Frontend --> WebGL["3D Simulation Engine"]
