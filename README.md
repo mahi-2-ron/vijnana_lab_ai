@@ -1,10 +1,9 @@
-
 <h1 align="center">🔬 Vijnana Lab — Experience Science</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black" alt="React">
   <img src="https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white" alt="TypeScript">
-  <img src="https://img.shields.io/badge/Fast_API-Gemini_2.0-orange?logo=google&logoColor=white" alt="Gemini AI">
+   <img src="https://img.shields.io/badge/Express_Gemini_2.0-orange?logo=google&logoColor=white" alt="Gemini AI">
   <img src="https://img.shields.io/badge/Graphics-React_Three_Fiber-black?logo=three.js&logoColor=white" alt="R3F">
   <img src="https://img.shields.io/badge/Auth-Firebase-FFCA28?logo=firebase&logoColor=black" alt="Firebase">
 </p>
@@ -30,27 +29,20 @@ In the current educational landscape of Bharat, millions of students in rural or
 
 ## 🏗 System Architecture
 
-
-graph TD
-    User["Student / Teacher"] --> Frontend["React 19 Frontend"]
-    Frontend --> WebGL["3D Simulation Engine"]
-    Frontend --> Backend["Express API Server"]
-    Backend --> Gemini["Gemini 2.0 Flash AI"]
-    
-    subgraph Identity_Layer ["🔒 Security & Identity"]
-        Frontend --> Auth["Firebase Authentication"]
-        Backend --> RBAC["Custom Role Claims"]
-    end
-    
-    subgraph Data_Layer ["🔋 Data & Intelligence"]
-        Backend --> MongoDB[("MongoDB Storage")]
-        Frontend --> AI_Tutor["Floating AI Mentor"]
-    end
-
-    style Frontend fill:#6366f1,stroke:#333,stroke-width:2px,color:#fff
-    style Backend fill:#1e293b,stroke:#6366f1,stroke-width:2px,color:#fff
-    style Gemini fill:#f59e0b,stroke:#333,stroke-width:2px,color:#fff
-    style WebGL fill:#10b981,stroke:#333,stroke-width:1px,color:#fff
+```text
+Student / Teacher
+   |
+   v
+React 19 Frontend
+   |-- 3D Simulation Engine (React Three Fiber)
+   |-- Floating AI Mentor
+   |-- Firebase Authentication
+   |
+   v
+Express API Server
+   |-- Gemini 2.0 Flash AI
+   |-- Custom Role Claims
+   |-- Optional MongoDB Storage
 ```
 
 ---
@@ -58,15 +50,15 @@ graph TD
 ## 📂 Project Structure
 
 ```bash
-vijnana-lab/
-├── components/          # Reusable UI (GlassCards, Navbar, AIFloatingTutor)
-├── pages/               # Functional Views (ApparatusLabs, Dashboards, About)
-├── server/               # Express.js Backend (Secure AI Proxy, RBAC Admin)
-│   ├── routes/          # API Endpoint Definitions
-│   └── models/          # MongoDB Schema for Progress Tracking
-├── services/            # Client-side Logic (Firebase, AI Fetching)
-├── public/              # High-fidelity Assets & Textures (Hero Banner)
-└── App.tsx              # Main Routing & Role Guards
+vijnana_lab_ai/
+├── components/          # Reusable UI and lab modules
+├── data/                # Subject and content datasets
+├── pages/               # Route-level screens and dashboards
+├── scripts/             # Admin / role-claim utilities
+├── server/              # Express API, config, routes, and models
+├── services/            # Client-side auth, API, and state logic
+├── public/              # Static assets
+└── App.tsx              # Main routing and role guards
 ```
 
 ---
@@ -80,7 +72,7 @@ vijnana-lab/
 | **3D Rendering** | Three.js, React Three Fiber, Drei |
 | **Intelligence** | Gemini 2.0 Flash AI (via Secure Backend Proxy) |
 | **Identity** | Firebase Authentication + Custom Role Claims |
-| **Database** | Cloud Firestore + MongoDB (Mongoose) |
+| **Database** | Cloud Firestore + optional MongoDB (Mongoose) |
 
 ---
 
@@ -96,7 +88,7 @@ vijnana-lab/
 1. **Clone the Project**
    ```bash
    git clone https://github.com/mahi-2-ron/vijnana_lab_ai.git
-   cd vijnana-lab
+   cd vijnana_lab_ai
    ```
 
 2. **Install Dependencies**
@@ -111,7 +103,8 @@ vijnana-lab/
    MONGO_URI=your_mongodb_connection_string
    SERVER_PORT=5000
    ```
-   *Note: Ensure `server/scripts/serviceAccountKey.json` is present for RBAC features.*
+   `MONGO_URI` is optional; the server will start without MongoDB if you are using the Firebase-only flow.
+   *Note: Ensure `scripts/serviceAccountKey.json` is present for Firebase Admin/RBAC features.*
 
 4. **Launch the Full-Stack Portal**
    ```bash
@@ -124,6 +117,4 @@ vijnana-lab/
 
 
 ## 🛡 License & Team
-Vijnana Lab is developed by **Team Supra** for the Hackolympic Innovation Challenge. All rights reserved. 
-
-
+Vijnana Lab is developed by **Team Supra** for the Hackolympic Innovation Challenge. All rights reserved.
