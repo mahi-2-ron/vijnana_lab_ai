@@ -32,21 +32,25 @@ In the current educational landscape of Bharat, millions of students in rural or
 
 ```mermaid
 graph TD
-    User((Student/Teacher)) -->|HTTPS| Frontend[React 19 Frontend]
-    Frontend -->|Three.js| WebGL[3D Simulation Engine]
-    Frontend -->|REST| Backend[Express.js API Server]
+    User["Student / Teacher"] --> Frontend["React 19 Frontend"]
+    Frontend --> WebGL["3D Simulation Engine"]
+    Frontend --> Backend["Express API Server"]
+    Backend --> Gemini["Gemini 2.0 Flash AI"]
     
-    subgraph "Identity & Auth"
-    Frontend -->|SDK| Firebase_Auth[Firebase Auth]
-    Backend -->|Admin SDK| Firebase_Claims[Custom RBAC Claims]
+    subgraph Identity_Layer ["🔒 Security & Identity"]
+        Frontend --> Auth["Firebase Authentication"]
+        Backend --> RBAC["Custom Role Claims"]
     end
     
-    subgraph "Data & Intelligence"
-    Backend -->|Mongoose| MongoDB[(MongoDB - Simulation States)]
-    Backend -->|GenAI SDK| Gemini[Gemini 2.0 Flash AI]
+    subgraph Data_Layer ["🔋 Data & Intelligence"]
+        Backend --> MongoDB[("MongoDB Storage")]
+        Frontend --> AI_Tutor["Floating AI Mentor"]
     end
-    
-    Frontend -->|Draggable Widget| AI_Tutor[Floating AI Mentor]
+
+    style Frontend fill:#6366f1,stroke:#333,stroke-width:2px,color:#fff
+    style Backend fill:#1e293b,stroke:#6366f1,stroke-width:2px,color:#fff
+    style Gemini fill:#f59e0b,stroke:#333,stroke-width:2px,color:#fff
+    style WebGL fill:#10b981,stroke:#333,stroke-width:1px,color:#fff
 ```
 
 ---
